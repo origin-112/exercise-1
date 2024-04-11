@@ -1,0 +1,32 @@
+server:
+  port: 8501
+
+spring:
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://43.136.67.102:3307/db_spzx?characterEncoding=utf-8&useSSL=false&allowPublicKeyRetrieval=true
+    username: root
+    password: root@DSJ2023
+  data:
+    redis:
+      host: 43.136.67.102
+      port: 6379
+      password: root@DSJ2023
+mybatis:
+  mapper-locations: classpath:/mapper/*/*.xml
+  config-location: classpath:/mybatis-config.xml
+spzx:
+  auth:
+    noAuthUrls:
+      - /admin/system/index/login
+      - /admin/system/index/generateValidateCode
+      - /webjars/**
+      - /**/api-docs/**
+      - /doc.html/**
+  minio:
+    endpointUrl: http://43.136.67.102:9000
+    accessKey: minioadmin
+    secretKey: minioadmin
+    bucketName: exercise-spzx-bucket
+  captchaOnOff: false
